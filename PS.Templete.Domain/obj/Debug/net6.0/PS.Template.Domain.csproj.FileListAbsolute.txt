@@ -1,0 +1,14 @@
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\bin\Debug\net6.0\PS.Template.Domain.deps.json
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\bin\Debug\net6.0\PS.Template.Domain.runtimeconfig.json
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\bin\Debug\net6.0\PS.Template.Domain.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\bin\Debug\net6.0\PS.Template.Domain.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\PS.Template.Domain.csproj.AssemblyReference.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\PS.Template.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\PS.Template.Domain.AssemblyInfoInputs.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\PS.Template.Domain.AssemblyInfo.cs
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\PS.Template.Domain.csproj.CoreCompileInputs.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\PS.Template.Domain.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\refint\PS.Template.Domain.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\PS.Template.Domain.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\PS.Template.Domain.genruntimeconfig.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Templete.Domain\obj\Debug\net6.0\ref\PS.Template.Domain.dll

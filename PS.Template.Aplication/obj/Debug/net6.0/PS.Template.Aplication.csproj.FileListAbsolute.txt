@@ -1,0 +1,15 @@
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\bin\Debug\net6.0\PS.Template.Aplication.deps.json
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\bin\Debug\net6.0\PS.Template.Aplication.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\bin\Debug\net6.0\PS.Template.Aplication.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\bin\Debug\net6.0\PS.Template.Domain.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\bin\Debug\net6.0\PS.Template.Domain.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\PS.Template.Aplication.csproj.AssemblyReference.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\PS.Template.Aplication.GeneratedMSBuildEditorConfig.editorconfig
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\PS.Template.Aplication.AssemblyInfoInputs.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\PS.Template.Aplication.AssemblyInfo.cs
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\PS.Template.Aplication.csproj.CoreCompileInputs.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\PS.Template.Aplication.csproj.CopyComplete
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\PS.Template.Aplication.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\refint\PS.Template.Aplication.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\PS.Template.Aplication.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.Aplication\obj\Debug\net6.0\ref\PS.Template.Aplication.dll

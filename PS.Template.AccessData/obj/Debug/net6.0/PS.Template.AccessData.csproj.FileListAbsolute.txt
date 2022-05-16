@@ -1,0 +1,17 @@
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\PS.Template.AccessData.csproj.AssemblyReference.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\PS.Template.AccessData.GeneratedMSBuildEditorConfig.editorconfig
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\PS.Template.AccessData.AssemblyInfoInputs.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\PS.Template.AccessData.AssemblyInfo.cs
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\PS.Template.AccessData.csproj.CoreCompileInputs.cache
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\bin\Debug\net6.0\PS.Template.AccessData.deps.json
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\bin\Debug\net6.0\PS.Template.AccessData.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\bin\Debug\net6.0\PS.Template.AccessData.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\bin\Debug\net6.0\PS.Template.Aplication.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\bin\Debug\net6.0\PS.Template.Domain.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\bin\Debug\net6.0\PS.Template.Aplication.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\bin\Debug\net6.0\PS.Template.Domain.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\PS.Template.AccessData.csproj.CopyComplete
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\PS.Template.AccessData.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\refint\PS.Template.AccessData.dll
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\PS.Template.AccessData.pdb
+D:\Universidad 2022\ProyectoSoftWare_2022_API\PS.Template.AccessData\obj\Debug\net6.0\ref\PS.Template.AccessData.dll
