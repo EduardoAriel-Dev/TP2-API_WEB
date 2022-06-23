@@ -7,7 +7,7 @@ namespace PS.Template.Aplication.Interfaces
     {
         public Response createClient(DtoGetCliente cliente);
         public Response getClienteById(int cliente);
-
         public Response getClienteByOthers(string dni, string nombre, string apellido);
+        public Response GetAlquilerByEstado(int cliente, int estado);
     }
 }

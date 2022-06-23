@@ -5,7 +5,7 @@ using PS.Template.Domain.DTO;
 
 namespace ProyectoSoftWare_ApiWeb.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/cliente")]
     [ApiController]
     public class ClienteController : ControllerBase
     {
@@ -17,55 +17,67 @@ namespace ProyectoSoftWare_ApiWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> createCliente(DtoGetCliente id)
+        public IActionResult CreateCliente(DtoGetCliente id)
         {
 
             var response = _clienteService.createClient(id);
 
             if (!response.succes)
             {
-                return new JsonResult(response.content) { StatusCode = 404 };
+                return new JsonResult(new { error = response.content }) { StatusCode = response.statuscode };
             }
-            return new JsonResult(response.content) { StatusCode = 201 };
+            return new JsonResult(new {Message = response.content , objeto = response.objects }) { StatusCode = response.statuscode };
         }
-
-
-
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetClienteId(int id)
+        public IActionResult GetClienteId(int id)
         {
             try
             {
-                var ClientExist = _clienteService.getClienteById(id);
-                if (!ClientExist.succes)
+                var response = _clienteService.getClienteById(id);
+                if (!response.succes)
                 {
-                    return new JsonResult(ClientExist.content) { StatusCode = 400 };
+                    return new JsonResult(new {Error = response.content }) { StatusCode = response.statuscode };
                 }
-                return new JsonResult(ClientExist.objects) { StatusCode = 200 };
+                return new JsonResult(new { Objeto = response.objects, Message = response.content }) { StatusCode = response.statuscode };
             }
             catch (Exception e)
             {
                 return StatusCode(500);
             }
         }
-
         [HttpGet]
-        public async Task<IActionResult> getClienteByothers([FromQuery] string? dni, [FromQuery] string? nombre, [FromQuery] string? apellido)
+        public IActionResult GetClienteByothers([FromQuery] string? dni, [FromQuery] string? nombre, [FromQuery] string? apellido)
         {
             try
             {
-                var clientExist = _clienteService.getClienteByOthers(dni, nombre, apellido);
-                if (!clientExist.succes)
+                var response = _clienteService.getClienteByOthers(dni, nombre, apellido);
+                if (!response.succes)
                 {
-                    return new JsonResult(clientExist.content) { StatusCode = 400 };
+                    return new JsonResult(new {Error = response.content }) { StatusCode = response.statuscode };
                 }
-                return new JsonResult(clientExist.objects) { StatusCode = 200 };
+                return new JsonResult(new {Objeto = response.objects, Message = response.content }) { StatusCode = response.statuscode };
             }
             catch (Exception e)
             {
                 return StatusCode(500);
             }
 
+        }
+        [HttpGet("/alquiler/{cliente}")]
+        public IActionResult GetAlquilerByCliente(int cliente,[FromQuery] int estado) {
+            try
+            {
+                var response = _clienteService.GetAlquilerByEstado(cliente,estado);
+                if (!response.succes)
+                {
+                    return new JsonResult(new { Error = response.content }) { StatusCode = response.statuscode };
+                }
+                return new JsonResult(new { Objeto = response.arrList, Message = response.content }) { StatusCode = response.statuscode };
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
         }
     }
 }

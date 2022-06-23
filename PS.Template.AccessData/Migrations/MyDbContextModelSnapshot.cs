@@ -169,7 +169,7 @@ namespace PS.Template.AccessData.Migrations
                     b.HasData(
                         new
                         {
-                            ISBN = "1407134612",
+                            ISBN = "9789877312928",
                             Autor = "Maggie Stiefvater",
                             Edicion = "1",
                             Editorial = "Sm",
@@ -179,7 +179,7 @@ namespace PS.Template.AccessData.Migrations
                         },
                         new
                         {
-                            ISBN = "8467559217",
+                            ISBN = "9789877313451",
                             Autor = "Maggie Stiefvater",
                             Edicion = "1",
                             Editorial = "Sm",
@@ -219,7 +219,7 @@ namespace PS.Template.AccessData.Migrations
                         },
                         new
                         {
-                            ISBN = "8408083805",
+                            ISBN = "9789878317113",
                             Autor = "Cassandra Clare",
                             Edicion = "2014",
                             Editorial = "Booket",

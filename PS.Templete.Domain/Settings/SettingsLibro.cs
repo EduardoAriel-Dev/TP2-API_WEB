@@ -25,7 +25,7 @@ namespace PS.Template.Domain.Settings
 
             BuilderLibros.HasData(new Libros
             {
-                ISBN = "1407134612",
+                ISBN = "9789877312928",
                 Titulo = "La profecia del cuervo",
                 Autor = "Maggie Stiefvater",
                 Editorial = "Sm",
@@ -35,7 +35,7 @@ namespace PS.Template.Domain.Settings
             });
             BuilderLibros.HasData(new Libros
             {
-                ISBN = "8467559217",
+                ISBN = "9789877313451",
                 Titulo = "Los saqueadores del sueño",
                 Autor = "Maggie Stiefvater",
                 Editorial = "Sm",
@@ -75,7 +75,7 @@ namespace PS.Template.Domain.Settings
             });
             BuilderLibros.HasData(new Libros
             {
-                ISBN = "8408083805",
+                ISBN = "9789878317113",
                 Titulo = "Cazadores de Sombras - Ciudad de Ceniza",
                 Autor = "Cassandra Clare",
                 Editorial = "Booket",

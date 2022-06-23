@@ -28,17 +28,40 @@ namespace PS.Template.AccessData.Queries
             return listClient;
         }
 
-        public List<Cliente> searchClientByEmail(DtoGetCliente cliente)
+        public Cliente searchClientByEmail(DtoGetCliente cliente)
         {
-            List<Cliente> listClientEmail = _context.clientes.Where(X => X.Email == cliente.Email).ToList();
+            var listClientEmail = _context.clientes.Where(X => X.Email == cliente.Email).FirstOrDefault();
 
             return listClientEmail;
         }
 
         public List<Cliente> searchClientOthers(string? dni, string? nombre, string? apellido)
         {
-            List<Cliente> listClient = _context.clientes.Where(X => X.DNI == dni || X.Nombre == nombre || X.Apellido == apellido).ToList();
-            return listClient;
+            if (dni == null)
+                {
+                if (nombre != null && apellido != null)
+                {
+                    return _context.clientes.Where(x => x.Nombre == nombre && x.Apellido == apellido).ToList();
+                }
+                if (nombre==null && apellido == null)
+                {
+                    return _context.clientes.ToList();
+                }
+                return _context.clientes.Where(x => x.Nombre == nombre || x.Apellido == apellido).ToList();
+            }
+            if (nombre !=null && apellido != null)
+            {
+                return _context.clientes.Where(x => x.DNI == dni && x.Nombre == nombre && x.Apellido == apellido).ToList();
+            }
+            if (nombre != null || apellido != null)
+            {
+                return _context.clientes.Where(x => x.DNI == dni &&( x.Nombre == nombre || x.Apellido == apellido)).ToList();
+            }
+            return _context.clientes.Where(x => x.DNI == dni || x.Nombre == nombre || x.Apellido == apellido).ToList();
+        }
+        public Cliente SearchClientByDNI(string dni) {
+            var dniExist = _context.clientes.Where(x => x.DNI == dni).FirstOrDefault();
+            return dniExist;
         }
     }
 }

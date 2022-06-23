@@ -30,7 +30,7 @@ namespace PS.Template.AccessData.Commands
                 }
                 _context.clientes.Add(client);
                 _context.SaveChanges();
-
+                response.objects = client;
             }
             catch (Exception e)
             {

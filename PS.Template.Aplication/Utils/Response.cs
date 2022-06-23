@@ -8,6 +8,7 @@ namespace PS.Template.Aplication.Utils
         public string content { get; set; }
         public object objects { get; set; }
         public ArrayList arrList { get; set; }
+        public int statuscode { get; set; }
         public Response(bool succes, string content)
         {
             this.succes = succes;

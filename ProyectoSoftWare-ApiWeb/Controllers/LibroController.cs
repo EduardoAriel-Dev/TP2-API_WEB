@@ -4,7 +4,7 @@ using PS.Template.Aplication.Utils;
 
 namespace ProyectoSoftWare_ApiWeb.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class LibroController : ControllerBase
     {
@@ -15,52 +15,74 @@ namespace ProyectoSoftWare_ApiWeb.Controllers
             _libroService = client;
         }
 
-        [HttpGet("{titulo}")]
-        public async Task<IActionResult> GetLibro(string titulo)
-        {
+        [HttpGet("libros/{id}")]
+        public IActionResult GetLibro(string id)
+            {
             try
             {
-                var BookExist = _libroService.getLibroByTitle(titulo);
-                if (!BookExist.succes)
+                var response = _libroService.GetLibroById(id);
+                if (!response.succes)
                 {
-                    return new JsonResult(BookExist.content) { StatusCode = 400 };
+                    return new JsonResult(new { Error = response.content }) { StatusCode = response.statuscode };
                 }
-                return new JsonResult(BookExist.objects) { StatusCode = 200 };
+                return new JsonResult(new { Message = response.content ,Objeto = response.objects}) { StatusCode = response.statuscode };
             }
             catch (Exception e)
             {
                 return StatusCode(500);
             }
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetLibroOther([FromQuery] bool stock, [FromQuery] string? autor, [FromQuery] string? titulo) {
-
+        [HttpGet("libros")]
+        public IActionResult GetLibroOther([FromQuery] bool? stock, [FromQuery] string? autor, [FromQuery] string? titulo) {
             try
             {
-                var libroStock = _libroService.getLibroStock(stock);
+                var response = _libroService.filtersLibro(stock,autor,titulo);
 
-                if (autor != null) {
-                    libroStock = _libroService.getLibroByAuthor(autor, libroStock.arrList);
-                }
-                if (titulo != null)
+                if (!response.succes)
                 {
-                    libroStock = _libroService.getLibroTitle(titulo, libroStock.arrList);
+                    return new JsonResult(new { Message = response.content}) { StatusCode = response.statuscode};
                 }
-                if (stock == false && autor == null && titulo == null)
+                return new JsonResult(new { Message = response.content, objeto = response.objects}) { StatusCode = response.statuscode};
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpHead("libros/{id}")]
+        public IActionResult HeadLibroStock(string id, [FromQuery] int stock) {
+            try
+            {
+                var response = _libroService.HeadLibroByStockId(id,stock);
+                if (!response.succes)
                 {
-                    libroStock = _libroService.getLibro();
+                    return new JsonResult(new {Error = response.succes}) { StatusCode = response.statuscode };
                 }
-                return new JsonResult(libroStock.arrList) { StatusCode = 200 };
+                return new JsonResult(new {Message = response.succes}) { StatusCode = response.statuscode };
             }
             catch (Exception e)
             {
                 return StatusCode(500);
             }
 
+        }
+        [HttpGet("libro/{titulo}/")]
+        public IActionResult GetLibroByTitle(string titulo) {
+            try
+            {
+                var response = _libroService.GetLibroByTitle(titulo);
+
+                if (!response.succes)
+                {
+                    return new JsonResult(new { error = response.content}) { StatusCode = response.statuscode };
+                }
+                return new JsonResult(new { Message = response.content, List = response.arrList }) { StatusCode = response.statuscode };
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500);
+            }
 
         }
-
-        
     }
 }

@@ -6,8 +6,9 @@ namespace PS.Template.Aplication.Interfaces
     public interface IQueryCliente
     {
         public Cliente searchClientById(int cliente);
-        public List<Cliente> searchClientByEmail(DtoGetCliente cliente);
+        public Cliente searchClientByEmail(DtoGetCliente cliente);
         public List<Cliente> searchClientOthers(string? dni, string? nombre, string? apellido);
+        public Cliente SearchClientByDNI(string dni);
 
     }
 }

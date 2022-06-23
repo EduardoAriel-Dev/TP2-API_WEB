@@ -20,10 +20,13 @@ namespace PS.Template.AccessData.Commands
         {
             try
             {
+                var response = new Response(true, "Reserva realizada");
+                var lib = _context.libros.Find(dtoAlquiler.ISBN);
+                lib.Stock--;
                 var reserva = new Alquileres()
                 {
-                    ClienteId = dtoAlquiler.ClienteId,
-                    IsbnId = dtoAlquiler.IsbnId,
+                    ClienteId = dtoAlquiler.cliente,
+                    IsbnId = dtoAlquiler.ISBN,
                     EstadoDeAlquileresId = 2, 
                     FechaReserva = dtoAlquiler.fechaReserva,
                     FechaAlquiler = null,
@@ -32,26 +35,26 @@ namespace PS.Template.AccessData.Commands
 
                 _context.alquileres.Add(reserva);
                 _context.SaveChanges();
+                response.objects = reserva;
 
-                return new Response(true, "Reserva realizada");
+                return response;
             }
             catch (Exception)
             {
                 return new Response(true, "Internal Server Error");
             }
         }
-
-
         public Response CreateAlquiler(DtoAlquiler dtoAlquiler)
         {
             try
             {
-                var lib = _context.libros.Find(dtoAlquiler.IsbnId);
+                var response = new Response(true,"Alquiler realizado");
+                var lib = _context.libros.Find(dtoAlquiler.ISBN);
                 lib.Stock--;
                 var alquler = new Alquileres()
                 {
-                    ClienteId = dtoAlquiler.ClienteId,
-                    IsbnId = dtoAlquiler.IsbnId,
+                    ClienteId = dtoAlquiler.cliente,
+                    IsbnId = dtoAlquiler.ISBN,
                     EstadoDeAlquileresId = 1,
                     FechaReserva = null,
                     FechaAlquiler = dtoAlquiler.fechaAlquiler,
@@ -60,13 +63,35 @@ namespace PS.Template.AccessData.Commands
 
                 _context.alquileres.Add(alquler);
                 _context.SaveChanges();
+                response.objects = alquler;
 
-                return new Response(true, "Alquiler realizada");
+                return response;
             }
             catch (Exception)
             {
                 return new Response(true, "Internal Server Error");
             }
+        }
+
+        public Response putAlquiler(Alquileres alquileres) {
+            try
+            {
+                var response = new Response(true,"Reserva Actualizada");
+                alquileres.FechaReserva = null;
+                alquileres.FechaAlquiler = DateTime.Now;
+                alquileres.FechaDevolucion = DateTime.Now.AddDays(7);
+                alquileres.EstadoDeAlquileresId = 1;
+
+                _context.Update<Alquileres>(alquileres);
+                _context.SaveChanges();
+
+                return response;
+            }
+            catch (Exception)
+            {
+                return new Response(true, "Internal Server Error");
+            }
+
         }
     }
 }

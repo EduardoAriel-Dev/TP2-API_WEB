@@ -6,6 +6,7 @@ using PS.Template.Aplication.Interfaces;
 using PS.Template.Aplication.Interfaces.Interface_Libro;
 using PS.Template.Aplication.Services;
 using PS.Template.Aplication.Interfaces.interface_Alquiler;
+using PS.Template.Aplication.Interfaces.Interface_Estado;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,15 @@ builder.Services.AddTransient<IClienteCommand, ClienteCommands>();
 builder.Services.AddTransient<IQueryCliente, QueryCliente>();
 builder.Services.AddTransient<IQueryLibro, QueryLibro>();
 builder.Services.AddTransient<IlibroService, LibroService>();
+builder.Services.AddTransient<IQueryEstado, QueryEstadoAlquiler>();
+builder.Services.AddTransient<IAlquilerService, AlquilereService>();
+builder.Services.AddTransient<IQueryAlquiler, QueryAlquiler>();
 builder.Services.AddTransient<IAlquilerCommands, AlquilerCommands>();
+
+builder.Services.AddCors(c =>
+{
+    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
 
 var app = builder.Build();
 
@@ -33,9 +42,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-
-
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

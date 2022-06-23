@@ -2,6 +2,7 @@
 using PS.Template.Aplication.Utils;
 using PS.Template.Domain.Models;
 using System.Collections;
+using PS.Template.Domain.DTO;
 
 namespace PS.Template.Aplication.Services
 {
@@ -12,118 +13,68 @@ namespace PS.Template.Aplication.Services
         {
             _queryLibro = query;
         }
-
-        public Response getLibroByTitle(string titulo)
+        public Response filtersLibro(bool? stock, string? autor, string? titulo) 
         {
-            var response = new Response(true, "Libro Encontrado con Stock disponible");
-
-            var query = _queryLibro.searchLibroByTitle(titulo);
-
-
+            var response = new Response(true, "Lista de Libros");
+            response.statuscode = 200;
+            var query = _queryLibro.SearchLibro(stock,autor,titulo);
+            ArrayList array = new ArrayList();
+            if (query.Count==0)
+            {
+                response.succes = false;
+                response.statuscode = 400;
+                response.content = "Libro no encontrado";
+            }
+            else
+            {
+                response.objects = query;
+            }
+            return response;
+        }
+        public Response GetLibroById(string ISBN) {
+            var response = new Response(true,"Libro Encontrado");
+            response.statuscode = 200;
+            var query = _queryLibro.searchLibroByISBN(ISBN);
             if (query == null)
             {
                 response.succes = false;
-                response.content = "No se encontro el libro ";
+                response.content = "ISBN del libro no encontrado";
+                response.statuscode = 400;
             }
             else
             {
-                if (query.Stock > 0)
-                {
-                    response.objects = query;
-                }
-                else
-                {
-                    response.succes = false;
-                    response.content = "Libro encontrado sin Stock disponible";
-                }
+                response.objects = query;
             }
-
             return response;
         }
-
-        public Response getLibroStock(bool stock) {
-
-            var response = new Response(true,"Stock disponible");
-
-            if (stock)
-            {
-                var query = _queryLibro.listLibroStock();
-                response.arrList = new ArrayList();
-
-                foreach (Libros l in query)
-                {
-                    if (l.Stock!=0)
-                    {
-                        response.arrList.Add(l);
-                    }
-                }
-            }
-            else
+        public Response HeadLibroByStockId(string isbn , int stock) {
+            var response = new Response(true, "");
+            response.statuscode = 200;
+            var query = _queryLibro.SearchLibroStockId(isbn, stock);
+            if (query == null)
             {
                 response.succes = false;
-                response.content = "Sin filtro de Stock";
+                response.statuscode = 400;
             }
-           
             return response;
         }
-
-        public Response getLibroByAuthor(string? autor,ArrayList array) {
-
-            var response = new Response(true,"Autor Encontrado");
-
-            var query = _queryLibro.listLibroByAuthor(autor,array);
-
-            response.arrList = new ArrayList();
-
-            if (query.Count != 0)
-            {
-                foreach (var l in query)
-                {
-                    response.arrList.Add(l);
-                }
-            }
-            else
+        public Response GetLibroByTitle(string title) {
+            var response = new Response(true,"Libro encontrado");
+            response.statuscode = 200;
+            ArrayList array = new ArrayList();
+            var query = _queryLibro.searchLibroByTitle(title);
+            if (query == null)
             {
                 response.succes = false;
-                response.content = "Autor No existene";
+                response.content = "Titulo no encontrado";
+                response.statuscode = 400;
             }
-            return response;
-        }
-
-        public Response getLibroTitle(string titulo,ArrayList array) {
-
-            var response = new Response(true, "Titulo encontrado");
-
-            var query = _queryLibro.searchLibroByTitle(titulo,array);
-
-            response.arrList = new ArrayList();
-
-            if (query.Count != 0)
-            {
-                foreach (var l in query)
+            else {
+                foreach(Libros libro in query)
                 {
-                    response.arrList.Add(l);
+                    array.Add(libro);
                 }
-            }
-            else
-            {
-                response.succes = false;
-                response.content = "Titulo No existene";
-            }
-
-            return response;
-        }
-
-        public Response getLibro() {
-
-            var response = new Response(true,"Lista de libros");
-
-            var libro = _queryLibro.searchaLibro();
-
-            response.arrList = new ArrayList();
-            foreach (Libros l in libro) {
-
-                response.arrList.Add(l);
+                response.arrList = array;
             }
             return response;
         }
